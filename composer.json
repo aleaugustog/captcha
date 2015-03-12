@@ -1,0 +1,21 @@
+{
+  "name": "thytanium/captcha",
+  "description": "Captcha for laravel",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alejandro Gonzalez",
+      "email": "thytanium@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "illuminate/support": "4.2.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Thytanium\\Captcha\\": "src/Thytanium/Captcha"
+    }
+  },
+  "minimum-stability": "stable"
+}

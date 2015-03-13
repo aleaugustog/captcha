@@ -28,6 +28,7 @@ class CaptchaServiceProvider extends ServiceProvider
         include __DIR__.'/../../routes.php';
 
         $this->app->validator->resolver(function($translator, $data, $rules, $messages) {
+            $messages['captcha'] = "Captcha text doesn't match.";
             return new CaptchaValidator($translator, $data, $rules, $messages);
         });
     }

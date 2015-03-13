@@ -41,8 +41,8 @@ class Captcha
 
         //Load font
         $this->font = __DIR__.'/../../../public/'
-            .$this->config->get('captcha::fonts_path')
-            .'/'.$this->config->get('captcha::font').'.ttf';
+            .$this->config->get('captcha.fonts_path')
+            .'/'.$this->config->get('captcha.font').'.ttf';
     }
 
     /**
@@ -61,7 +61,7 @@ class Captcha
         $hash = $this->session->get("{$this->storeKey}.{$formId}");
 
         return $this->hash(
-            $this->config->get('captcha::case_sensitive') ? $string : strtolower($string)
+            $this->config->get('captcha.case_sensitive') ? $string : strtolower($string)
         ) == $hash;
     }
 
@@ -79,28 +79,28 @@ class Captcha
 
         //Generate random string
         $string = $this->randomString(
-            $this->config->get('captcha::length'),
-            $this->config->get('captcha::letters') && $this->config->get('captcha::numbers') ? 1 :
-                ($this->config->get('captcha::letters') ? 2 : 3),
-            $this->config->get('captcha::case') == 'upper' ? 2 :
-                ($this->config->get('captcha::case') == 'lower' ? 3 : 1)
+            $this->config->get('captcha.length'),
+            $this->config->get('captcha.letters') && $this->config->get('captcha.numbers') ? 1 :
+                ($this->config->get('captcha.letters') ? 2 : 3),
+            $this->config->get('captcha.case') == 'upper' ? 2 :
+                ($this->config->get('captcha.case') == 'lower' ? 3 : 1)
         );
 
         //Store in session
         $this->session->put(
             "{$this->storeKey}.{$formId}",
-            $this->hash($this->config->get('captcha::case_sensitive') ? $string : strtolower($string))
+            $this->hash($this->config->get('captcha.case_sensitive') ? $string : strtolower($string))
         );
 
         //Colors
-        $colors = $this->config->get('captcha::colors');
-        $background = $this->config->get('captcha::background');
-        $line = $this->config->get('captcha::line_color');
+        $colors = $this->config->get('captcha.colors');
+        $background = $this->config->get('captcha.background');
+        $line = $this->config->get('captcha.line_color');
 
         //Create image
         $image = imagecreatetruecolor(
-            $this->config->get('captcha::width'),
-            $this->config->get('captcha::height')
+            $this->config->get('captcha.width'),
+            $this->config->get('captcha.height')
         );
 
         //Colors
@@ -112,45 +112,45 @@ class Captcha
             $image,
             0,
             0,
-            $this->config->get('captcha::width'),
-            $this->config->get('captcha::height'),
+            $this->config->get('captcha.width'),
+            $this->config->get('captcha.height'),
             $background
         );
 
         //Background Horizontal lines
-        for ($i = 1; $i < $this->config->get('captcha::h_lines'); $i++) {
+        for ($i = 1; $i < $this->config->get('captcha.h_lines'); $i++) {
             imageline(
                 $image,
                 0,
-                ($this->config->get('captcha::height')/$this->config->get('captcha::h_lines'))*$i,
-                $this->config->get('captcha::width'),
-                ($this->config->get('captcha::height')/$this->config->get('captcha::h_lines'))*$i,
+                ($this->config->get('captcha.height')/$this->config->get('captcha.h_lines'))*$i,
+                $this->config->get('captcha.width'),
+                ($this->config->get('captcha.height')/$this->config->get('captcha.h_lines'))*$i,
                 $line
             );
         }
 
         //Background Vertical lines
-        for ($i = 1; $i < $this->config->get('captcha::v_lines'); $i++) {
+        for ($i = 1; $i < $this->config->get('captcha.v_lines'); $i++) {
             imageline(
                 $image,
-                ($this->config->get('captcha::width')/$this->config->get('captcha::v_lines'))*$i,
+                ($this->config->get('captcha.width')/$this->config->get('captcha.v_lines'))*$i,
                 0,
-                ($this->config->get('captcha::width')/$this->config->get('captcha::v_lines'))*$i,
-                $this->config->get('captcha::height'),
+                ($this->config->get('captcha.width')/$this->config->get('captcha.v_lines'))*$i,
+                $this->config->get('captcha.height'),
                 $line
             );
         }
 
         //Text
-        for ($i = 0; $i < $this->config->get('captcha::length'); $i++) {
+        for ($i = 0; $i < $this->config->get('captcha.length'); $i++) {
             $color = $colors[rand(0,count($colors)-1)];
 
             imagettftext(
                 $image,
-                $this->config->get('captcha::size'),
-                rand(-$this->config->get('captcha::angle'), $this->config->get('captcha::angle')),
-                10+($i*$this->config->get('captcha::separation')),
-                $this->config->get('captcha::size')+10,
+                $this->config->get('captcha.size'),
+                rand(-$this->config->get('captcha.angle'), $this->config->get('captcha.angle')),
+                10+($i*$this->config->get('captcha.separation')),
+                $this->config->get('captcha.size')+10,
                 imagecolorallocate($image, $color[0], $color[1], $color[2]),
                 $this->font,
                 substr($string, $i, 1)
@@ -160,7 +160,7 @@ class Captcha
         //Stream
         header('Content-Type: image/jpeg');
         header('Cache-Control: no-cache, no-store, must-revalidate');
-        imagejpeg($image, null, $this->config->get('captcha::quality'));
+        imagejpeg($image, null, $this->config->get('captcha.quality'));
         imagedestroy($image);
     }
 

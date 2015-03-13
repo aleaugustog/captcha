@@ -3,6 +3,7 @@
 namespace Thytanium\Captcha;
 
 use Illuminate\Validation\Validator;
+use Captcha;
 
 class CaptchaValidator extends Validator
 {

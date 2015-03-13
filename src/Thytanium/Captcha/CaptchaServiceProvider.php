@@ -23,11 +23,14 @@ class CaptchaServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->package('thytanium/captcha');
+        $this->publishes([
+            __DIR__.'/../../config/captcha.php' => config_path('captcha.php'),
+        ]);
 
         include __DIR__.'/../../routes.php';
 
         $this->app->validator->resolver(function($translator, $data, $rules, $messages) {
+            $messages['captcha'] = "Captcha text doesn't match.";
             return new CaptchaValidator($translator, $data, $rules, $messages);
         });
     }

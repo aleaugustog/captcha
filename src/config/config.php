@@ -11,9 +11,11 @@ return [
     'numbers' => true,
     'angle' => 15,
     'separation' => 30,
+    'background' => [250, 250, 250],
 
     'h_lines' => 5,
     'v_lines' => 20,
+    'line_color' => [220, 220, 220],
 
     //Colors
     'colors' => [
@@ -27,7 +29,7 @@ return [
     ],
 
     //Font
-    'font' => 'Impact',
+    'font' => 'Prototype',
     'size' => 30,
     'fonts_path' => 'fonts',
 ];

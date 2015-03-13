@@ -94,6 +94,8 @@ class Captcha
 
         //Colors
         $colors = $this->config->get('captcha::colors');
+        $background = $this->config->get('captcha::background');
+        $line = $this->config->get('captcha::line_color');
 
         //Create image
         $image = imagecreatetruecolor(
@@ -102,8 +104,8 @@ class Captcha
         );
 
         //Colors
-        $white = imagecolorallocate($image, 255, 255, 255);
-        $light = imagecolorallocate($image, 220, 220, 220);
+        $background = imagecolorallocate($image, $background[0], $background[1], $background[2]);
+        $line = imagecolorallocate($image, $line[0], $line[1], $line[2]);
 
         //Background
         imagefilledrectangle(
@@ -112,7 +114,7 @@ class Captcha
             0,
             $this->config->get('captcha::width'),
             $this->config->get('captcha::height'),
-            $white
+            $background
         );
 
         //Background Horizontal lines
@@ -123,7 +125,7 @@ class Captcha
                 ($this->config->get('captcha::height')/$this->config->get('captcha::h_lines'))*$i,
                 $this->config->get('captcha::width'),
                 ($this->config->get('captcha::height')/$this->config->get('captcha::h_lines'))*$i,
-                $light
+                $line
             );
         }
 
@@ -135,7 +137,7 @@ class Captcha
                 0,
                 ($this->config->get('captcha::width')/$this->config->get('captcha::v_lines'))*$i,
                 $this->config->get('captcha::height'),
-                $light
+                $line
             );
         }
 
@@ -171,8 +173,8 @@ class Captcha
      */
     private function randomString($length, $mode = 1, $case = 1)
     {
-        $chars = "abcdefghijklmnopqrstuvwxyz";
-        $numbers = "23456789"; //Ignore 0 & 1 because look like O & L
+        $chars = "abcdefghjkmnpqrstuvwxyz"; //Ignore O & I & L because look like 0 & 1
+        $numbers = "23456789"; //Ignore 0 & 1 because look like O & I & L
         $haystack = $string = "";
 
         switch ($mode) {
@@ -187,7 +189,9 @@ class Captcha
         }
 
         for ($i = 0; $i < $length; $i++) {
-            $char = substr($haystack, rand(0, strlen($haystack)-1), 1);
+            do {
+                $char = substr($haystack, rand(0, strlen($haystack)-1), 1);
+            } while (strpos($string, $char) !== false);
 
             if ($case == 2 || ($case == 1 && rand(0, 9) > 4)) {
                 $char = strtoupper($char);

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'case_sensitive' => false,
+    'case_sensitive' => true,
     'width' => 200,
     'height' => 50,
     'length' => 6,

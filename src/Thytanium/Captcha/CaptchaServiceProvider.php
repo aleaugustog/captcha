@@ -26,5 +26,9 @@ class CaptchaServiceProvider extends ServiceProvider
         $this->package('thytanium/captcha');
 
         include __DIR__.'/../../routes.php';
+
+        $this->app->validator->resolver(function($translator, $data, $rules, $messages) {
+            return new CaptchaValidator($translator, $data, $rules, $messages);
+        });
     }
 }

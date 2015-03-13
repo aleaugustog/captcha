@@ -1,12 +1,19 @@
 <?php
 
 return [
+    'case_sensitive' => false,
     'width' => 200,
     'height' => 50,
     'length' => 6,
     'quality' => 100,
-    'case' => 'upper',
+    'case' => 'mixed',
+    'letters' => true,
+    'numbers' => true,
     'angle' => 15,
+    'separation' => 30,
+
+    'h_lines' => 5,
+    'v_lines' => 20,
 
     //Colors
     'colors' => [
@@ -20,7 +27,7 @@ return [
     ],
 
     //Font
-    'font' => 'Prototype',
-    'size' => 24,
+    'font' => 'Impact',
+    'size' => 30,
     'fonts_path' => 'fonts',
 ];

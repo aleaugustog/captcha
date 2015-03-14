@@ -3,6 +3,8 @@
 ## Install
 ### Laravel 4
 `javascript
-require: {
+"require": {
+  ...
+  "thytanium/captcha": "1.*"
 }`
 

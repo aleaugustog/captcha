@@ -22,4 +22,16 @@ Then, run `composer update` to install the package.
 
 ## Use
 To use it just put this HTML code in your form next to a text input.
-```html <img src="{{URL::to('captcha')}}">```
+```php 
+<img src="{{URL::to('captcha')}}">
+```
+
+### Validate
+To validate the entered text into the input, put this in your validation rules:
+```php
+$rules = [
+  'text_input' => 'required|captcha'
+];
+
+Validator::make($rules, Input::all());
+```

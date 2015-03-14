@@ -1,6 +1,6 @@
 # Captcha validator for Laravel
 
-This project borns from the need of a cool captcha validator for Laravel.
+![Captcha](http://thytanium.info/github/captcha)
 
 ## Install
 Edit your `composer.json` file

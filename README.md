@@ -1,4 +1,4 @@
-# Captcha validator for Laravel
+# Captcha for Laravel
 
 ![Captcha](http://thytanium.info/github/captcha.png)
 

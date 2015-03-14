@@ -1,6 +1,6 @@
 # Captcha validator for Laravel
 
-![Captcha](http://thytanium.info/github/captcha)
+![Captcha](http://thytanium.info/github/captcha.png)
 
 ## Install
 Edit your `composer.json` file

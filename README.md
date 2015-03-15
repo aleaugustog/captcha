@@ -18,7 +18,21 @@ Edit your `composer.json` file
   "thytanium/captcha": "2.*"
 }
 ```
-Then, run `composer update` to install the package.
+Run `composer update` to install the package.
+Then add the following to `app.php`
+
+```php
+'providers' => array(
+  ...
+  'Thytanium\Captcha\CaptchaServiceProvider',
+);
+```
+
+```php
+'aliases' => array(
+  'Captcha' => 'Thytanium\Catpcha\Facades\Captcha',
+);
+```
 
 ## Use
 To use it just put this HTML code in your form next to a text input.

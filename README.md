@@ -122,12 +122,12 @@ You can show as many lines as you want.
 #### Colors
 Colors must be provided in RGB notation [rrr,ggg,bbb].
 ##### Background color
-By default is [250,250,250] (almost white)
+By default is 250,250,250 (almost white)
 ```php
 'background' => [250, 250, 250]
 ```
 ##### Line color
-By default is [220,220,220] (very light gray)
+By default is 220,220,220 (very light gray)
 ```php
 'line_color' => [220, 220, 220]
 ```

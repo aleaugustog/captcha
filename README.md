@@ -34,7 +34,9 @@ Then add the following to `app.php`
 );
 ```
 Then, you have to **publish the configuration file**.
-`php artisan vendor:publish --provider="Thytanium\Captcha\CaptchaServiceProvider"`
+```console
+php artisan vendor:publish --provider="Thytanium\Captcha\CaptchaServiceProvider"
+```
 
 ## Use
 To use it just put this HTML code in your form next to a text input.

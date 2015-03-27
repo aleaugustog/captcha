@@ -108,7 +108,7 @@ Change it to whatever you want. If you want the characters in "straight" way, ju
 'angle' => 15
 ```
 #### Separation
-This is characters separation. Default is 30. **The higher the more separated**.
+This is separation between characters. Default is 30. **The higher the more separated**.
 ```php
 'separation' => 30,
 ```

@@ -4,12 +4,12 @@
 
 ## Install
 Edit your `composer.json` file
-### Laravel 4
-```javascript
-"require": {
-  ...
-  "thytanium/captcha": "1.*"
-}
+  ### Laravel 4
+  ```javascript
+  "require": {
+    ...
+    "thytanium/captcha": "1.*"
+  }
 ```
 ### Laravel 5
 ```javascript

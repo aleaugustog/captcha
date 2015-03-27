@@ -30,7 +30,7 @@ Then add the following to `app.php`
 
 ```php
 'aliases' => array(
-  'Captcha' => 'Thytanium\Catpcha\Facades\Captcha',
+  'Captcha' => 'Thytanium\Captcha\Facades\Captcha',
 );
 ```
 

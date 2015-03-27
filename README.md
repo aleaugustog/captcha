@@ -77,7 +77,7 @@ Change it to `false` to disable it.
 ```php
 'case_sensitive' => true
 ```
-#### Characters case
+#### Letters case
 If you want the captcha to show only upper letters, lower letters or mixed.
 ```php
 'case' => 'upper' //For upper case letters only
@@ -108,6 +108,68 @@ Change it to whatever you want. If you want the characters in "straight" way, ju
 'angle' => 15
 ```
 #### Separation
+This is characters separation. Default is 30. **The higher the more separated**.
+```php
+'separation' => 30,
+```
+#### Background grid
+By default, background shows 20 vertical lines and 5 horizontal lines (one every 10 pixels).
+You can show as many lines as you want.
+```php
+'h_lines' => 5, //Horizontal lines
+'v_lines' => 20 //Vertical lines
+```
+#### Colors
+Colors must be provided in RGB notation [rrr,ggg,bbb].
+##### Background color
+By default is [250,250,250] (almost white)
+```php
+'background' => [250, 250, 250]
+```
+##### Line color
+By default is [220,220,220] (very light gray)
+```php
+'line_color' => [220, 220, 220]
+```
+##### Font colors
+This is an `array` of choices. You can add as many colors as you want and the characters will rendered is this colors randomly.
+```php
+'colors' => [
+    [0, 83, 160],
+    [33, 125, 211],
+    [30, 134, 232],
+    [11, 72, 130],
+    [13, 119, 219],
+    [0, 102, 150],
+    [51, 113, 142],
+],
+```
+### Font
+This package works with **TrueType (.ttf) fonts**.
+
+Four font choices are already provided: `Prototype` (default), `Impact`, `BrianJames` and `Spinwerad`. All of them thanks to [1001freefonts](http://www.1001freefonts.com).
+
+##### Prototype
+```php
+'font' => 'Prototype' //Ignore .ttf extension
+```
+##### Impact
+```php
+'font' => 'Impact' //Ignore .ttf extension
+```
+##### BrianJames
+```php
+'font' => 'BrianJames' //Ignore .ttf extension
+```
+##### Spinwerad
+```php
+'font' => 'Spinwerad' //Ignore .ttf extension
+```
+#### Font size
+By default, font size is `20px`. Change it to whatever you want.
+```php
+'size' => 30
+```
 #### Image quality
 By default, and I recommend to keep it that way, image quality is 100.
 ```php

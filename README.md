@@ -4,14 +4,14 @@
 
 ## Install
 Edit your `composer.json` file
-  ### Laravel 4
-  ```javascript
-  "require": {
-    ...
-    "thytanium/captcha": "1.*"
-  }
+#### Laravel 4
+```javascript
+"require": {
+  ...
+  "thytanium/captcha": "1.*"
+}
 ```
-### Laravel 5
+#### Laravel 5
 ```javascript
 "require": {
   ...
@@ -33,6 +33,8 @@ Then add the following to `app.php`
   'Captcha' => 'Thytanium\Captcha\Facades\Captcha',
 );
 ```
+Then, you have to **publish the configuration file**.
+`php artisan vendor:publish --provider="Thytanium\Captcha\CaptchaServiceProvider"`
 
 ## Use
 To use it just put this HTML code in your form next to a text input.

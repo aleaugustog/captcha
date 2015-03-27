@@ -170,7 +170,7 @@ Four font choices are already provided: `Prototype` (default), `Impact`, `BrianJ
 ```
 ![Spinwerad](http://thytanium.info/github/C_Spinwerad.png)
 #### Font size
-By default, font size is `20px`. Change it to whatever you want.
+By default, font size is `30px`. Change it to whatever you want.
 ```php
 'size' => 30
 ```

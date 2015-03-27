@@ -153,18 +153,22 @@ Four font choices are already provided: `Prototype` (default), `Impact`, `BrianJ
 ```php
 'font' => 'Prototype' //Ignore .ttf extension
 ```
+![Prototype](http://thytanium.info/github/C_Prototype.png)
 ##### Impact
 ```php
 'font' => 'Impact' //Ignore .ttf extension
 ```
+![Impact](http://thytanium.info/github/C_Impact.png)
 ##### BrianJames
 ```php
 'font' => 'BrianJames' //Ignore .ttf extension
 ```
+![BrianJames](http://thytanium.info/github/C_BrianJames.png)
 ##### Spinwerad
 ```php
 'font' => 'Spinwerad' //Ignore .ttf extension
 ```
+![Spinwerad](http://thytanium.info/github/C_Spinwerad.png)
 #### Font size
 By default, font size is `20px`. Change it to whatever you want.
 ```php

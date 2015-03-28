@@ -55,7 +55,7 @@ Validator::make($rules, Input::all());
 ```
 
 ### Options
-You can edit `config/catpcha.php` configuration file to change behavior of captcha.
+You can edit `config/captcha.php` configuration file to change behavior of captcha.
 
 #### String length
 By default, string length is 6 characters.
